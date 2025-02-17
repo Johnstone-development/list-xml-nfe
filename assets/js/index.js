@@ -18,12 +18,20 @@ function listarItens() {
         // Buscar o número da NF-e e o nome do emitente
         const numeroNFE = xmlDoc.getElementsByTagName("nNF")[0]?.textContent || "N/A";
         const emitente = xmlDoc.getElementsByTagName("xNome")[0]?.textContent || "N/A";
+        const CNPJ = xmlDoc.getElementsByTagName('CNPJ')[0]?.textContent || "N/A";
 
         // Exibir as informações no header
         headerContainer.innerHTML = `
             <div class="header-info">
-                <strong>Nota Fiscal:</strong> ${numeroNFE} <br>
-                <strong>Emitente:</strong> ${emitente}
+                <p>
+                    <strong>Nota Fiscal:</strong> ${numeroNFE}
+                </p>
+                <p>
+                    <strong>Emitente:</strong> ${emitente}
+                </p>
+                <p>
+                    <strong>CNPJ:</strong> ${CNPJ}
+                </p>
             </div>
         `;
 
@@ -60,11 +68,11 @@ function listarItens() {
                 <tr>
                     <td>
                         ${codigo} 
-                        <button class="copy-btn" onclick="copiarTexto('${codigo}')">📋</button>
+                        <button class="copy-btn" onclick="copiarTexto('${codigo}')"><i class="fa-solid fa-copy"></i></button>
                     </td>
                     <td>
                         ${descricao} 
-                        <button class="copy-btn" onclick="copiarTexto('${descricao}')">📋</button>
+                        <button class="copy-btn" onclick="copiarTexto('${descricao}')"><i class="fa-solid fa-copy"></i></button>
                     </td>
                     <td>${quantidade}</td>
                     <td>R$ ${parseFloat(valorUnitario).toFixed(2)}</td>
