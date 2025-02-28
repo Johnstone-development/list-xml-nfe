@@ -53,6 +53,7 @@ th, td {
 th {
     background-color: #333333;
     color: white;
+    position: relative;
 }
 tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -87,3 +88,5 @@ tr:nth-child(even) {
 .check-box-select {
     cursor: pointer;
 }
+
+#view-count {}

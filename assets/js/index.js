@@ -48,7 +48,10 @@ function listarItens() {
                     <tr>
                         <th>Código</th>
                         <th>Descrição</th>
-                        <th>Quantidade</th>
+                        <th>
+                            Quantidade
+                            <span id="view-count">0.000</span>
+                        </th>
                         <th>Valor Unitário</th>
                         <th>Valor Total</th>
                     </tr>
@@ -96,7 +99,8 @@ function listarItens() {
 
                 count = check.checked ? count + val : count - val;
 
-                console.log(count);
+                console.log(count.toFixed(3));
+                document.getElementById('view-count').innerText = count.toFixed(3);
             }) 
         });
 
