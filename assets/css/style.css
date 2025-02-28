@@ -83,3 +83,7 @@ tr:nth-child(even) {
 .header-info p {
     margin-right: 10px;
 }
+
+.check-box-select {
+    cursor: pointer;
+}

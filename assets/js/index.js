@@ -74,7 +74,10 @@ function listarItens() {
                         ${descricao} 
                         <button class="copy-btn" onclick="copiarTexto('${descricao}')"><i class="fa-solid fa-copy"></i></button>
                     </td>
-                    <td>${quantidade}</td>
+                    <td>
+                        ${quantidade}
+                        <input type="checkbox" class="check-box-select" value="${quantidade}">
+                    </td>
                     <td>R$ ${parseFloat(valorUnitario).toFixed(2)}</td>
                     <td>R$ ${parseFloat(valorTotal).toFixed(2)}</td>
                 </tr>
@@ -83,6 +86,20 @@ function listarItens() {
 
         tabelaHTML += `</tbody></table>`;
         tabelaContainer.innerHTML = tabelaHTML;
+
+        const checks = document.querySelectorAll('.check-box-select');
+        var count = 0;
+
+        checks.forEach( check => {
+            check.addEventListener("change", () => {
+                let val = parseFloat(check.value);
+
+                count = check.checked ? count + val : count - val;
+
+                console.log(count);
+            }) 
+        });
+
     };
 
     reader.readAsText(file);
@@ -95,3 +112,4 @@ function copiarTexto(texto) {
         console.error("Erro ao copiar", err);
     });
 }
+
